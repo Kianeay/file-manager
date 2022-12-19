@@ -5,6 +5,7 @@ import currentDirectory from './currentDirectory.js';
 import { homedir } from 'node:os';
 
 import { up, cd, ls } from './navigation.js';
+import { os } from './operatingSystemInfo.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -36,6 +37,10 @@ rl.on('line', (line) => {
 
     case 'ls':
       ls();
+      break;
+
+    case 'os':
+      os(operations[1]);
       break;
   }
 })
