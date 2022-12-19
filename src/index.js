@@ -6,6 +6,7 @@ import { homedir } from 'node:os';
 
 import { up, cd, ls } from './navigation.js';
 import { os } from './operatingSystemInfo.js';
+import { hash } from './hash.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -41,6 +42,10 @@ rl.on('line', (line) => {
 
     case 'os':
       os(operations[1]);
+      break;
+
+    case 'hash':
+      hash(operations[1]);
       break;
   }
 })
