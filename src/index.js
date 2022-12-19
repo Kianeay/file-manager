@@ -8,7 +8,7 @@ import { up, cd, ls } from './navigation.js';
 import { os } from './operatingSystemInfo.js';
 import { hash } from './hash.js';
 import { cat, add, rn, rm } from './basicOperations.js';
-import { compress } from './compress.js';
+import { compress, decompress } from './compress.js';
 
 const rl = readline.createInterface({ input, output });
 
@@ -67,6 +67,10 @@ rl.on('line', (line) => {
       break;
 
     case 'compress':
+      compress(operations[1], operations[2]);
+      break;
+
+    case 'decompress':
       compress(operations[1], operations[2]);
       break;
 
