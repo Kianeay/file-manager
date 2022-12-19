@@ -1,7 +1,7 @@
 import { createHash } from 'crypto';
 import { resolve } from 'path';
 import { createReadStream } from 'fs';
-import currentDirectory from './currentDirectory';
+import currentDirectory from './currentDirectory.js';
 
 export const hash = (dir) => {
   try {
