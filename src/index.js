@@ -1,6 +1,7 @@
 import { argv, exit } from 'node:process';
 import { stdin as input, stdout as output } from 'node:process';
 import readline from 'node:readline';
+import currentDirectory from './currentDirectory';
 
 const rl = readline.createInterface({ input, output });
 
@@ -13,9 +14,15 @@ if (!userName) {
   process.exit(0);
 } else console.log(`Welcome to the File Manager, ${userName}!`);
 
+currentDirectory();
+
 rl.on('line', (line) => {
   console.log(line);
-}).on('close', () => {
-  console.log(`Thank you for using File Manager, ${userName}, goodbye!`);
-  exit();
-});
+})
+  .on('close', () => {
+    console.log(`Thank you for using File Manager, ${userName}, goodbye!`);
+    exit();
+  })
+  .on('error', (error) => {
+    console.log(error);
+  });
